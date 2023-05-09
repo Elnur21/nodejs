@@ -31,6 +31,12 @@ app.post("/photos", async(req, res) => {
   await Photo.create(req.body);
   res.redirect("/");
 });
+app.get("/photos/:id", async(req, res) => {
+  let photo= await Photo.findById(req.params.id)
+  res.render("/home/elnur/Desktop/nodejs-notcode/patc/views/photo",{
+    photo
+  });
+});
 
 //port listen
 app.listen(port, () => {

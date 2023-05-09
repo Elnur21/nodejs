@@ -12,11 +12,15 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
-            <h1>Man must explore, and this is exploration at its greatest</h1>
-            <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+            <h1><%= post.message %></h1>
+            <h2 class="subheading"><%= post.subtitle %></h2>
             <span class="meta">Posted by
-              <a href="#">Start Bootstrap</a>
-              on August 24, 2019</span>
+              <a href="#"><%= post.name %></a>
+              on <%= post.dateCreated.toLocaleDateString('en-US', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric'
+              }) %></span>
           </div>
         </div>
       </div>
