@@ -5,7 +5,7 @@
   "main": "task1.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon clean-blog/app.js"
+    "start": "nodemon patc/app.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "dependencies": {
     "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
     "mongoose": "^7.1.0"
   },
   "devDependencies": {
