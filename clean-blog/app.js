@@ -1,13 +1,27 @@
 const express = require("express");
 const path = require("path");
 const ejs = require("ejs");
+const Post = require("./models/Post")
+
 
 const app = express();
 const port = 8081;
+const publicPath = path.join(__dirname, "public");
+
+// engine templates
 app.set("view engine", "ejs");
-app.use("/public", express.static(path.join(__dirname, "public")));
-app.get("/", (req, res) => {
-  res.render("/home/elnur/Desktop/nodejs-notcode/clean-blog/views/index");
+
+//middlewares
+app.use("/public", express.static(publicPath));
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
+
+//routes
+app.get("/", async(req, res) => {
+  const posts = await Post.find({})
+  res.render("/home/elnur/Desktop/nodejs-notcode/clean-blog/views/index",{
+    posts
+  });
 });
 app.get("/about", (req, res) => {
   res.render("/home/elnur/Desktop/nodejs-notcode/clean-blog/views/about");
@@ -18,6 +32,11 @@ app.get("/add", (req, res) => {
 app.get("/post", (req, res) => {
   res.render("/home/elnur/Desktop/nodejs-notcode/clean-blog/views/post");
 });
+app.post("/addpost", async(req, res) => {
+  await Post.create(req.body)
+  res.redirect("/");
+});
+
 
 app.listen(port, () => {
   console.log(`app is running on ${port}`);
