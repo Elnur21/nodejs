@@ -8,6 +8,7 @@ const pageController = require("./controllers/pageController");
 
 const app = express();
 const port = 8080;
+// const port = process.env.PORT || 8080;
 // template engine
 app.set("view engine", "ejs");
 
