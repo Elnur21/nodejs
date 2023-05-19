@@ -15,22 +15,22 @@
     <meta name="author" content="">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
     <!-- Bootstrap CSS -->
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- Site CSS -->
-    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
     <!-- ALL VERSION CSS -->
-    <link type="text/css" rel="stylesheet" href="css/versions.css">
+    <link type="text/css" rel="stylesheet" href="/css/versions.css">
     <!-- Responsive CSS -->
-    <link type="text/css" rel="stylesheet" href="css/responsive.css">
+    <link type="text/css" rel="stylesheet" href="/css/responsive.css">
     <!-- Custom CSS -->
-    <link type="text/css" rel="stylesheet" href="css/custom.css">
+    <link type="text/css" rel="stylesheet" href="/css/custom.css">
 
     <!-- Modernizer for Portfolio -->
-    <script src="js/modernizer.js"></script>
+    <script src="/js/modernizer.js"></script>
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -54,24 +54,25 @@
 					<li><a class="active" href="#Login" data-toggle="tab">Login</a></li>
 					<li><a href="#Registration" data-toggle="tab">Registration</a></li>
 				</ul>
+				
 				<!-- Tab panes -->
 				<div class="tab-content">
 					<div class="tab-pane active" id="Login">
-						<form role="form" class="form-horizontal">
+						<form role="form" class="form-horizontal" method="POST" id="login-form" action="/user/login">
 							<div class="form-group">
 								<div class="col-sm-12">
-									<input class="form-control" id="email1" placeholder="Name" type="text">
+									<input name="email" class="form-control" id="email1" placeholder="Email" type="email">
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-12">
-									<input class="form-control" id="exampleInputPassword1" placeholder="Email" type="email">
+									<input name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" type="password">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-sm-10">
-									<button type="submit" class="btn btn-light btn-radius btn-brd grd1">
-										Submit
+									<button type="submit" form="login-form" class="btn btn-light btn-radius btn-brd grd1">
+										Login
 									</button>
 									<a class="for-pwd" href="javascript:;">Forgot your password?</a>
 								</div>
@@ -79,30 +80,25 @@
 						</form>
 					</div>
 					<div class="tab-pane" id="Registration">
-						<form role="form" class="form-horizontal">
+						<form role="form" class="form-horizontal" action="/user/signup" method="POST" id="register">
 							<div class="form-group">
 								<div class="col-sm-12">
-									<input class="form-control" placeholder="Name" type="text">
+									<input name="name" class="form-control" placeholder="Name" type="text">
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-12">
-									<input class="form-control" id="email" placeholder="Email" type="email">
+									<input name="email" class="form-control" id="email" placeholder="Email" type="email">
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-12">
-									<input class="form-control" id="mobile" placeholder="Mobile" type="email">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input class="form-control" id="password" placeholder="Password" type="password">
+									<input name="password" class="form-control" id="password" placeholder="Password" type="password">
 								</div>
 							</div>
 							<div class="row">							
 								<div class="col-sm-10">
-									<button type="button" class="btn btn-light btn-radius btn-brd grd1">
+									<button type="submit" form="register" class="btn btn-light btn-radius btn-brd grd1">
 										Save &amp; Continue
 									</button>
 									<button type="button" class="btn btn-light btn-radius btn-brd grd1">
