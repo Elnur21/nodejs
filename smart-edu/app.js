@@ -1,8 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const pageRoutes = require("./routes/pageRoutes");
 const courseRoutes = require("./routes/courseRoutes");
+
+
 
 const app = express();
 const port = 8080;
@@ -28,12 +32,13 @@ app.set("view engine", "ejs");
 
 // middlewares
 app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
 
 // routes
 app.use("/", pageRoutes);
-app.use("/course", courseRoutes);
-
-
+app.use("/courses", courseRoutes);
 
 app.listen(port, () => {
   console.log(`app is runing on ${port} port`);
