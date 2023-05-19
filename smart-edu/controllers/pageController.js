@@ -9,8 +9,3 @@ exports.getAboutPage = (req, res) => {
     pageName: "about",
   });
 };
-exports.getBlogPage = (req, res) => {
-  res.status(200).render("blog", {
-    pageName: "blog",
-  });
-};
