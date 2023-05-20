@@ -3,21 +3,22 @@ const Category = require("../models/Category");
 
 const bcrypt = require("bcrypt");
 const Course = require("../models/Course");
+const { validationResult } = require("express-validator");
 
 exports.createUser = async (req, res) => {
   try {
     await User.create(req.body);
-
-    // res.status(201).json({
-    //   status: "success",
-    //   user,
-    // });
     res.status(201).redirect("/");
   } catch (error) {
-    res.status(400).json({
-      status: "fail",
-      error,
-    });
+    const errors = validationResult(req);
+    console.log(errors);
+    console.log(errors.array()[0].msg);
+
+    for (let i = 0; i < errors.array().length; i++) {
+      req.flash("error", `${errors.array()[i].msg}`);
+    }
+
+    res.status(400).redirect("/");
   }
 };
 exports.loginUser = async (req, res) => {
@@ -37,12 +38,12 @@ exports.loginUser = async (req, res) => {
           req.session.userID = user._id;
           return res.status(200).redirect("/user/dashboard");
         }
-        // Handle incorrect password case
-        return res.status(401).json({
-          status: "fail",
-          message: "Incorrect password",
-        });
+        req.flash("error", "Your password is not correct!");
+        res.status(400).redirect("/");
       });
+    } else {
+      req.flash("error", "User is not exist!");
+      res.status(400).redirect("/");
     }
   } catch (error) {
     res.status(400).json({
