@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const session = require("express-session");
-const MongoStore = require('connect-mongo');
+const MongoStore = require("connect-mongo");
+const flash = require("connect-flash");
 
 const pageRoutes = require("./routes/pageRoutes");
 const courseRoutes = require("./routes/courseRoutes");
@@ -42,9 +43,17 @@ app.use(
     secret: "my_user",
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: "mongodb+srv://elnurmagerramov:1234@teacherbase.wou1v.mongodb.net/smarteduDB?retryWrites=true&w=majority" })
+    store: MongoStore.create({
+      mongoUrl:
+        "mongodb+srv://elnurmagerramov:1234@teacherbase.wou1v.mongodb.net/smarteduDB?retryWrites=true&w=majority",
+    }),
   })
 );
+app.use(flash());
+app.use((req, res, next) => {
+  res.locals.flashMessages = req.flash();
+  next();
+});
 
 // global variables
 global.userIN = null;

@@ -10,16 +10,11 @@ exports.createCourse = async (req, res) => {
       category: req.body.category,
       user: req.session.userID,
     });
-    // res.status(201).json({
-    //   status: "success",
-    //   course: course,
-    // });
+    req.flash("success", `${course.name} has been created successfully.`);
     res.status(201).redirect("/courses");
   } catch (error) {
-    res.status(400).json({
-      status: "fail",
-      error: error,
-    });
+    req.flash("error", `Something happened!`);
+    res.status(201).redirect("/courses");
   }
 };
 exports.getAllCourses = async (req, res) => {
@@ -27,26 +22,25 @@ exports.getAllCourses = async (req, res) => {
     const categorySlug = req.query.categories;
     const query = req.query.search;
 
-
     const category = await Category.findOne({ slug: categorySlug });
 
     let filter = {};
     if (categorySlug) {
       filter = { category: category._id };
     }
-    if(query){
-      filter = { name: query};
+    if (query) {
+      filter = { name: query };
     }
-    if(!query && !categorySlug){
-      filter.name="";
-      filter.category=null;
+    if (!query && !categorySlug) {
+      filter.name = "";
+      filter.category = null;
     }
 
     const courses = await Course.find({
-      $or:[
-        {name: { $regex: '.*' + filter.name + '.*', $options: 'i'}},
-        {category: filter.category}
-      ]
+      $or: [
+        { name: { $regex: ".*" + filter.name + ".*", $options: "i" } },
+        { category: filter.category },
+      ],
     })
       .sort("-dateCreated")
       .populate("user")

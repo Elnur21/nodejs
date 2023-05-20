@@ -16,6 +16,13 @@
                     <p class="lead">Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem!</p>
                 </div>
             </div><!-- end title -->
+			<div id="message">
+				<% if (flashMessages) { %> <% if (flashMessages.success) { %>
+				<div class="alert alert-success"><%= flashMessages.success %></div>
+				<% } else if (flashMessages.error) { %>
+				<div class="alert alert-danger"><%= flashMessages.error %></div>
+				<% } %> <% } %>
+			  </div>
 			<div class="row">
 				<div class="col-lg-9 blog-post-single col-12">
 					<div class="row"> 
