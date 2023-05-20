@@ -18,6 +18,11 @@ const UserSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  role: {
+    type: String,
+    enum: ["student", "teacher", "admin"],
+    default: "student",
+  },
 });
 UserSchema.pre("save", function (next) {
   bcrypt.hash(this.password, 10, (error, hash) => {
