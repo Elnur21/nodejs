@@ -173,86 +173,74 @@
     <!-- end title -->
 
     <hr class="invis" />
+
     <div class="row">
-      <div class="col-lg-9 blog-post-single col-12">
-        <div class="row">
-          <% for( let i = 0; i < courses.length; i++ ) { %>
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="blog-item">
-              <div class="image-blog">
-                <img src="/images/blog_6.jpg" alt="" class="img-fluid" />
-              </div>
-              <div class="meta-info-blog">
-                <span
-                  ><i class="fa fa-calendar"></i> <a href="#">May 11, 2015</a>
-                </span>
-                <span><i class="fa fa-tag"></i> <a href="#">News</a> </span>
-              </div>
-              <div class="blog-title">
-                <h2>
-                  <a href="/courses/<%= courses[i].slug %>" title=""
-                    ><%= courses[i].name %></a
-                  >
-                </h2>
-              </div>
-              <div class="blog-desc">
-                <p><%= courses[i].description %></p>
-              </div>
-              <div class="blog-button">
-                <a class="hover-btn-new orange" href="#"
-                  ><span>Read More</span></a
-                >
-              </div>
-            </div>
+      <% if (user.role === "teacher") { %> <% for( let i = 0; i <
+      courses.length; i++ ) { %>
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="blog-item">
+          <div class="image-blog">
+            <img src="/images/blog_6.jpg" alt="" class="img-fluid" />
           </div>
-          <!-- end col -->
-          <% } %>
-        </div>
-      </div>
-      <div class="col-lg-3 col-12 right-single">
-        <div class="widget-search">
-          <div class="site-search-area">
-            <form method="get" id="site-searchform" action="#">
-              <div>
-                <input class="input-text form-control" name="search-k" id="search-k" placeholder="Search keywords..." type="text">
-                <input id="searchsubmit" value="Search" type="submit">
-              </div>
-            </form>
+          <div class="meta-info-blog">
+            <span
+              ><i class="fa fa-calendar"></i> <a href="#">May 11, 2015</a>
+            </span>
+            <span> <%= courses[i].category.name %> </span>
+          </div>
+          <div class="blog-title">
+            <h2>
+              <a href="/courses/<%= courses[i].slug %>" title=""
+                ><%= courses[i].name %></a
+              >
+            </h2>
+          </div>
+          <div class="blog-desc">
+            <p><%= courses[i].description.substring(0,100) + "..." %></p>
+          </div>
+          <div class="blog-button">
+            <a class="hover-btn-new orange" href="#"><span>Read More</span></a>
           </div>
         </div>
-        <div class="widget-categories">
-          <h3 class="widget-title">Categories</h3>
-          <ul>
-            <li><a href="/courses">All courses</a></li>
-            <% for (let i=0; i< categories.length; i++) { %> 
-              <li>
-                <a href="/courses?categories=<%= categories[i].slug %>">
-                  <%= categories[i].name %>
-                </a>
-              </li>
-            <% } %>	
-          </ul>
-        </div>
-        <div class="widget-tags">
-          <h3 class="widget-title">Search Tags</h3>
-          <ul class="tags">
-            <li><a href="#"><b>business</b></a></li>
-            <li><a href="#"><b>jquery</b></a></li>
-            <li><a href="#">corporate</a></li>
-            <li><a href="#">portfolio</a></li>
-            <li><a href="#">css3</a></li>
-            <li><a href="#"><b>theme</b></a></li>
-            <li><a href="#"><b>html5</b></a></li>
-            <li><a href="#"><b>mysql</b></a></li>
-            <li><a href="#">multipurpose</a></li>
-            <li><a href="#">responsive</a></li>
-            <li><a href="#">premium</a></li>
-            <li><a href="#">javascript</a></li>
-            <li><a href="#"><b>Best jQuery</b></a></li>
-          </ul>
+      </div>
+      <% } %> <% } %> <% if (user.role === "student") { %> <% for( let i = 0; i
+      < user.courses.length; i++ ) { %>
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="blog-item">
+          <div class="image-blog">
+            <img src="/images/blog_6.jpg" alt="" class="img-fluid" />
+          </div>
+          <div class="meta-info-blog">
+            <span
+              ><i class="fa fa-calendar"></i> <a href="#">May 11, 2015</a>
+            </span>
+            <span> <%= user.courses[i].category.name %> </span>
+          </div>
+          <div class="blog-title">
+            <h2>
+              <a href="/courses/<%= user.courses[i].slug %>" title=""
+                ><%= user.courses[i].name %></a
+              >
+            </h2>
+          </div>
+          <div class="blog-desc">
+            <p><%= user.courses[i].description.substring(0,100) + "..." %></p>
+          </div>
+          <form method="POST" action="/courses/release">
+            <input
+              type="hidden"
+              name="course_id"
+              value="<%= user.courses[i]._id %>"
+            />
+            <button class="btn btn-lg btn-danger text-white">
+              <span>RELEASE</span>
+            </button>
+          </form>
         </div>
       </div>
+      <% } %> <% } %>
     </div>
+
     <!-- end row -->
   </div>
   <!-- end container -->

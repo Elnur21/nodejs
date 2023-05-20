@@ -57,13 +57,17 @@ exports.logoutUser = (req, res) => {
   });
 };
 exports.getDashboardPage = async (req, res) => {
-  const user = await User.findOne({ _id: req.session.userID });
+  const user = await User.findOne({ _id: req.session.userID }).populate(
+    "courses"
+  );
   const categories = await Category.find();
-  const courses = await Course.find({user:req.session.userID})
+  const courses = await Course.find({ user: req.session.userID }).populate(
+    "category"
+  );
   res.status(200).render("dashboard", {
     pageName: "dashboard",
     user,
     categories,
-    courses
+    courses,
   });
 };
