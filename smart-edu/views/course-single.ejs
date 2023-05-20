@@ -15,8 +15,8 @@
             <img src="/images/blog_single.jpg" alt="" class="img-fluid" />
           </div>
           <div class="post-content">
-            <% if (user && user.role==="student" && !user.courses.includes(course._id)) {
-            %>
+            <% if (user && user.role==="student" &&
+            !user.courses.includes(course._id)) { %>
             <div class="post-date">
               <form method="POST" action="/courses/enroll">
                 <input
@@ -85,16 +85,16 @@
       <div class="col-lg-3 col-12 right-single">
         <div class="widget-search">
           <div class="site-search-area">
-            <form method="get" id="site-searchform" action="#">
+            <form method="GET" id="site-searchform" action="/courses">
               <div>
                 <input
                   class="input-text form-control"
-                  name="search-k"
-                  id="search-k"
-                  placeholder="Search keywords..."
+                  name="search"
+                  id="search"
+                  placeholder="Search..."
                   type="text"
                 />
-                <input id="searchsubmit" value="Search" type="submit" />
+                <button id="searchsubmit" value="Search" type="submit"></button>
               </div>
             </form>
           </div>
