@@ -41,7 +41,7 @@ app.use(
   session({
     secret: "my_user",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     store: MongoStore.create({ mongoUrl: "mongodb+srv://elnurmagerramov:1234@teacherbase.wou1v.mongodb.net/smarteduDB?retryWrites=true&w=majority" })
   })
 );

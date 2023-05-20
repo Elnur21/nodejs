@@ -1,4 +1,4 @@
 module.exports = (req, res, next) => {
-  if (!userIN) return res.redirect("/");
+  if (!req.session.userID) return res.redirect("/");
   next();
 };

@@ -20,30 +20,17 @@
       </button>
       <div class="collapse navbar-collapse" id="navbars-host">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item <%= pageName ==='index' && 'active' %>">
+          <li class="nav-item <%= pageName === 'index' ? 'active' : '' %>">
             <a class="nav-link" href="/">Home</a>
           </li>
-          <li class="nav-item <%= pageName ==='about' && 'active' %>">
+          <li class="nav-item <%= pageName === 'about' ? 'active' : '' %>">
             <a class="nav-link" href="/about">About Us</a>
           </li>
-          <li class="nav-item <%= pageName ==='courses' && 'active' %>">
-            <a class="nav-link" href="/courses">Courses </a>
+          <li class="nav-item <%= pageName === 'courses' ? 'active' : '' %>">
+            <a class="nav-link" href="/courses">Courses</a>
           </li>
-          <!-- <li class="nav-item <%= pageName ==='blog' && 'active' %>">
-            <a
-              class="nav-link dropdown-toggle"
-              href="/blog"
-              >Blog
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="teachers.html">Teachers</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pricing.html">Pricing</a>
-          </li> -->
-          <% if(userIN) { %>
-          <li class="nav-item <%= pageName ==='dashboard' && 'active' %>"">
+          <% if (userIN) { %>
+          <li class="nav-item <%= pageName === 'dashboard' ? 'active' : '' %>">
             <a class="nav-link" href="/user/dashboard">Dashboard</a>
           </li>
           <% } %>
@@ -51,13 +38,15 @@
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
         </ul>
-        <% if(userIN) { %>
+        <% if (userIN) { %>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a class="hover-btn-new log orange" href="/user/logout"> <span>Log out</span> </a>
+            <a class="hover-btn-new log orange" href="/user/logout"
+              ><span>Log out</span></a
+            >
           </li>
         </ul>
-        <% } %> <% if(!userIN) { %>
+        <% } else { %>
         <ul class="nav navbar-nav navbar-right">
           <li>
             <a
