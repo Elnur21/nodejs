@@ -21,10 +21,14 @@ const CourseSchema = new mongoose.Schema({
     type: String,
     unique: true,
   },
-  category:{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:"Category"
-  }
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Category",
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 CourseSchema.pre("validate", function (next) {
   this.slug = slugify(this.name, {

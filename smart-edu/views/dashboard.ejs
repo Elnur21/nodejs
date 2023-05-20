@@ -1,15 +1,14 @@
-<%- include("./partials/_header") %>
-<%- include("./partials/_navigation") %>
+<%- include("./partials/_header") %> <%- include("./partials/_navigation") %>
 
 <div class="all-title-box">
   <div class="container text-center">
-    <h1><%= user.name %>
-      <% if (user.role === "student") { %>
-        <span class="m_1">STUDENT.</span>
+    <h1>
+      <%= user.name %> <% if (user.role === "student") { %>
+      <span class="m_1">STUDENT.</span>
       <% } else if (user.role === "teacher") { %>
-        <span class="m_1">TEACHER.</span>
+      <span class="m_1">TEACHER.</span>
       <% } else if (user.role === "admin") { %>
-        <span class="m_1">ADMIN.</span>
+      <span class="m_1">ADMIN.</span>
       <% } %>
     </h1>
   </div>
@@ -18,51 +17,112 @@
 <div id="overviews" class="section wb">
   <div class="container">
     <% if (user.role !== "student") { %>
-      <p class="text-center">
-        <a class="hover-btn-new log orange btn-warning" href="#" data-toggle="modal" data-target="#addCourse">
-          <span>Create new course</span>
-        </a>
-      </p>
+    <p class="text-center">
+      <a
+        class="hover-btn-new log orange btn-warning"
+        href="#"
+        data-toggle="modal"
+        data-target="#addCourse"
+      >
+        <span>Create new course</span>
+      </a>
+    </p>
     <% } %>
-    
 
-    <div class="modal fade" id="addCourse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div
+      class="modal fade"
+      id="addCourse"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModalLabel"
+    >
       <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header tit-up">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
+              &times;
+            </button>
             <h4 class="modal-title">Create new course</h4>
           </div>
           <div class="modal-body customer-box">
-            <form role="form" class="form-horizontal" method="POST" id="createCourse-form" action="/courses">
+            <form
+              role="form"
+              class="form-horizontal"
+              method="POST"
+              id="createCourse-form"
+              action="/courses"
+            >
               <div class="form-group">
                 <div class="col-sm-12">
-                  <input name="role" class="form-control" id="" value="<%= user.role %>" type="hidden">
+                  <input
+                    name="role"
+                    class="form-control"
+                    id=""
+                    value="<%= user.role %>"
+                    type="hidden"
+                  />
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-sm-12">
-                  <input name="name" class="form-control" id="" placeholder="Course name" type="text">
+                  <input
+                    name="name"
+                    class="form-control"
+                    id=""
+                    placeholder="Course name"
+                    type="text"
+                  />
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-sm-12">
-                  <input name="description" class="form-control" id="" placeholder="Course description" type="text">
+                  <input
+                    name="description"
+                    class="form-control"
+                    id=""
+                    placeholder="Course description"
+                    type="text"
+                  />
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-sm-12">
-                  <select name="category" class="form-control" id="" placeholder="Course category" type="text">
+                  <select
+                    name="category"
+                    class="form-control"
+                    id=""
+                    placeholder="Course category"
+                    type="text"
+                  >
                     <% for (let i = 0; i < categories.length; i++) { %>
-                      <option value="<%= categories[i]._id %>"><%= categories[i].name %></option>
+                    <option value="<%= categories[i]._id %>">
+                      <%= categories[i].name %>
+                    </option>
                     <% } %>
                   </select>
                 </div>
               </div>
               <div class="row">
                 <div class="col-sm-10">
-                  <button type="submit" form="createCourse-form" class="btn btn-light btn-radius btn-brd grd1">Submit</button>
-                  <button type="button" class="btn btn-light btn-radius btn-brd grd1" data-dismiss="modal">Cancel</button>
+                  <button
+                    type="submit"
+                    form="createCourse-form"
+                    class="btn btn-light btn-radius btn-brd grd1"
+                  >
+                    Submit
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-light btn-radius btn-brd grd1"
+                    data-dismiss="modal"
+                  >
+                    Cancel
+                  </button>
                 </div>
               </div>
             </form>
@@ -73,192 +133,170 @@
 
     <div class="blog-author">
       <div class="author-bio">
-        <h3 class="author_name"><a href="#">Tom Jobs</a></h3>
-					<h5>CEO at <a href="#">SmartEDU</a></h5>
-					<p class="author_det">
-						Lorem ipsum dolor sit amet, consectetur adip, sed do eiusmod tempor incididunt  ut aut reiciendise voluptat maiores alias consequaturs aut perferendis doloribus omnis saperet docendi nec, eos ea alii molestiae aliquand.
-					</p>
-				</div>
-				<div class="author-desc">
-					<img src="/images/author.jpg" alt="about author">
-					<ul class="author-social">
-						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fa fa-skype"></i></a></li>
-					</ul>
-				</div>
-			</div>
-            <div class="section-title row text-center">
-                <div class="col-md-8 offset-md-2">
-                    <p class="lead">Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem!</p>
-                </div>
-            </div><!-- end title -->
+        <h3 class="author_name"><a href="#"><%= user.name %></a></h3>
+        <% if (user.role === "teacher") { %>
+        <h5 class="text-warning">
+          Teacher at <a class="text-warning" href="#">SmartEDU</a>
+        </h5>
+        <% } %>
+        <p class="author_det">
+          Lorem ipsum dolor sit amet, consectetur adip, sed do eiusmod tempor
+          incididunt ut aut reiciendise voluptat maiores alias consequaturs aut
+          perferendis doloribus omnis saperet docendi nec, eos ea alii molestiae
+          aliquand.
+        </p>
+      </div>
+      <div class="author-desc">
+        <img src="/images/author.jpg" alt="about author" />
+        <ul class="author-social">
+          <li>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-skype"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="section-title row text-center">
+      <div class="col-md-8 offset-md-2">
+        <p class="lead">
+          Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. Aenean
+          sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+          nec sagittis sem!
+        </p>
+      </div>
+    </div>
+    <!-- end title -->
 
-            <hr class="invis"> 
+    <hr class="invis" />
+    <div class="row">
+      <div class="col-lg-9 blog-post-single col-12">
+        <div class="row">
+          <% for( let i = 0; i < courses.length; i++ ) { %>
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="blog-item">
+              <div class="image-blog">
+                <img src="/images/blog_6.jpg" alt="" class="img-fluid" />
+              </div>
+              <div class="meta-info-blog">
+                <span
+                  ><i class="fa fa-calendar"></i> <a href="#">May 11, 2015</a>
+                </span>
+                <span><i class="fa fa-tag"></i> <a href="#">News</a> </span>
+              </div>
+              <div class="blog-title">
+                <h2>
+                  <a href="/courses/<%= courses[i].slug %>" title=""
+                    ><%= courses[i].name %></a
+                  >
+                </h2>
+              </div>
+              <div class="blog-desc">
+                <p><%= courses[i].description %></p>
+              </div>
+              <div class="blog-button">
+                <a class="hover-btn-new orange" href="#"
+                  ><span>Read More</span></a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- end col -->
+          <% } %>
+        </div>
+      </div>
+      <div class="col-lg-3 col-12 right-single">
+        <div class="widget-search">
+          <div class="site-search-area">
+            <form method="get" id="site-searchform" action="#">
+              <div>
+                <input class="input-text form-control" name="search-k" id="search-k" placeholder="Search keywords..." type="text">
+                <input id="searchsubmit" value="Search" type="submit">
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="widget-categories">
+          <h3 class="widget-title">Categories</h3>
+          <ul>
+            <li><a href="/courses">All courses</a></li>
+            <% for (let i=0; i< categories.length; i++) { %> 
+              <li>
+                <a href="/courses?categories=<%= categories[i].slug %>">
+                  <%= categories[i].name %>
+                </a>
+              </li>
+            <% } %>	
+          </ul>
+        </div>
+        <div class="widget-tags">
+          <h3 class="widget-title">Search Tags</h3>
+          <ul class="tags">
+            <li><a href="#"><b>business</b></a></li>
+            <li><a href="#"><b>jquery</b></a></li>
+            <li><a href="#">corporate</a></li>
+            <li><a href="#">portfolio</a></li>
+            <li><a href="#">css3</a></li>
+            <li><a href="#"><b>theme</b></a></li>
+            <li><a href="#"><b>html5</b></a></li>
+            <li><a href="#"><b>mysql</b></a></li>
+            <li><a href="#">multipurpose</a></li>
+            <li><a href="#">responsive</a></li>
+            <li><a href="#">premium</a></li>
+            <li><a href="#">javascript</a></li>
+            <li><a href="#"><b>Best jQuery</b></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container -->
+</div>
+<!-- end section -->
 
-            <div class="row"> 
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="blog-item">
-						<div class="image-blog">
-							<img src="/images/blog_1.jpg" alt="" class="img-fluid">
-						</div>
-						<div class="meta-info-blog">
-							<span><i class="fa fa-calendar"></i> <a href="#">May 11, 2015</a> </span>
-                            <span><i class="fa fa-tag"></i>  <a href="#">News</a> </span>
-                            <span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>
-						</div>
-						<div class="blog-title">
-							<h2><a href="#" title="">perferendis doloribus asperiores.</a></h2>
-						</div>
-						<div class="blog-desc">
-							<p>Lorem ipsum door sit amet, fugiat deicata avise id cum, no quo maiorum intel ogrets geuiat operts elicata libere avisse id cumlegebat, liber regione eu sit.... </p>
-						</div>
-						<div class="blog-button">
-							<a class="hover-btn-new orange" href="#"><span>Read More<span></a>
-						</div>
-					</div>
-                </div><!-- end col -->
+<div class="parallax section dbcolor">
+  <div class="container">
+    <div class="row logos">
+      <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+        <a href="#"
+          ><img src="/images/logo_01.png" alt="" class="img-repsonsive"
+        /></a>
+      </div>
+      <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+        <a href="#"
+          ><img src="/images/logo_02.png" alt="" class="img-repsonsive"
+        /></a>
+      </div>
+      <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+        <a href="#"
+          ><img src="/images/logo_03.png" alt="" class="img-repsonsive"
+        /></a>
+      </div>
+      <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+        <a href="#"
+          ><img src="/images/logo_04.png" alt="" class="img-repsonsive"
+        /></a>
+      </div>
+      <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+        <a href="#"
+          ><img src="/images/logo_05.png" alt="" class="img-repsonsive"
+        /></a>
+      </div>
+      <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+        <a href="#"
+          ><img src="/images/logo_06.png" alt="" class="img-repsonsive"
+        /></a>
+      </div>
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container -->
+</div>
+<!-- end section -->
 
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="blog-item">
-						<div class="image-blog">
-							<img src="/images/blog_2.jpg" alt="" class="img-fluid">
-						</div>
-						<div class="meta-info-blog">
-							<span><i class="fa fa-calendar"></i> <a href="#">May 11, 2015</a> </span>
-                            <span><i class="fa fa-tag"></i>  <a href="#">News</a> </span>
-                            <span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>
-						</div>
-						<div class="blog-title">
-							<h2><a href="#" title="">perferendis doloribus asperiores.</a></h2>
-						</div>
-						<div class="blog-desc">
-							<p>Lorem ipsum door sit amet, fugiat deicata avise id cum, no quo maiorum intel ogrets geuiat operts elicata libere avisse id cumlegebat, liber regione eu sit.... </p>
-						</div>
-						<div class="blog-button">
-							<a class="hover-btn-new orange" href="#"><span>Read More</span></a>
-						</div>
-					</div>
-                </div><!-- end col -->
-
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="blog-item">
-						<div class="image-blog">
-							<img src="/images/blog_3.jpg" alt="" class="img-fluid">
-						</div>
-						<div class="meta-info-blog">
-							<span><i class="fa fa-calendar"></i> <a href="#">May 11, 2015</a> </span>
-                            <span><i class="fa fa-tag"></i>  <a href="#">News</a> </span>
-                            <span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>
-						</div>
-						<div class="blog-title">
-							<h2><a href="#" title="">perferendis doloribus asperiores.</a></h2>
-						</div>
-						<div class="blog-desc">
-							<p>Lorem ipsum door sit amet, fugiat deicata avise id cum, no quo maiorum intel ogrets geuiat operts elicata libere avisse id cumlegebat, liber regione eu sit.... </p>
-						</div>
-						<div class="blog-button">
-							<a class="hover-btn-new orange" href="#"><span>Read More</span></a>
-						</div>
-					</div>
-                </div><!-- end col -->
-            </div><!-- end row -->
-
-            <hr class="hr3"> 
-
-            <div class="row"> 
-                <div class="col-lg-4 col-md-6 col-12">
-                   <div class="blog-item">
-						<div class="image-blog">
-							<img src="/images/blog_4.jpg" alt="" class="img-fluid">
-						</div>
-						<div class="meta-info-blog">
-							<span><i class="fa fa-calendar"></i> <a href="#">May 11, 2015</a> </span>
-                            <span><i class="fa fa-tag"></i>  <a href="#">News</a> </span>
-                            <span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>
-						</div>
-						<div class="blog-title">
-							<h2><a href="#" title="">perferendis doloribus asperiores.</a></h2>
-						</div>
-						<div class="blog-desc">
-							<p>Lorem ipsum door sit amet, fugiat deicata avise id cum, no quo maiorum intel ogrets geuiat operts elicata libere avisse id cumlegebat, liber regione eu sit.... </p>
-						</div>
-						<div class="blog-button">
-							<a class="hover-btn-new orange" href="#"><span>Read More</span></a>
-						</div>
-					</div>
-                </div><!-- end col -->
-
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="blog-item">
-						<div class="image-blog">
-							<img src="/images/blog_5.jpg" alt="" class="img-fluid">
-						</div>
-						<div class="meta-info-blog">
-							<span><i class="fa fa-calendar"></i> <a href="#">May 11, 2015</a> </span>
-                            <span><i class="fa fa-tag"></i>  <a href="#">News</a> </span>
-                            <span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>
-						</div>
-						<div class="blog-title">
-							<h2><a href="#" title="">perferendis doloribus asperiores.</a></h2>
-						</div>
-						<div class="blog-desc">
-							<p>Lorem ipsum door sit amet, fugiat deicata avise id cum, no quo maiorum intel ogrets geuiat operts elicata libere avisse id cumlegebat, liber regione eu sit.... </p>
-						</div>
-						<div class="blog-button">
-							<a class="hover-btn-new orange" href="#"><span>Read More</span></a>
-						</div>
-					</div>
-                </div><!-- end col -->
-
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="blog-item">
-						<div class="image-blog">
-							<img src="/images/blog_6.jpg" alt="" class="img-fluid">
-						</div>
-						<div class="meta-info-blog">
-							<span><i class="fa fa-calendar"></i> <a href="#">May 11, 2015</a> </span>
-                            <span><i class="fa fa-tag"></i>  <a href="#">News</a> </span>
-                            <span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>
-						</div>
-						<div class="blog-title">
-							<h2><a href="#" title="">perferendis doloribus asperiores.</a></h2>
-						</div>
-						<div class="blog-desc">
-							<p>Lorem ipsum door sit amet, fugiat deicata avise id cum, no quo maiorum intel ogrets geuiat operts elicata libere avisse id cumlegebat, liber regione eu sit.... </p>
-						</div>
-						<div class="blog-button">
-							<a class="hover-btn-new orange" href="#"><span>Read More</span></a>
-						</div>
-					</div>
-                </div><!-- end col -->
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
-
-    <div class="parallax section dbcolor">
-        <div class="container">
-            <div class="row logos">
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="/images/logo_01.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="/images/logo_02.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="/images/logo_03.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="/images/logo_04.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="/images/logo_05.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="/images/logo_06.png" alt="" class="img-repsonsive"></a>
-                </div>
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
-
-	<%- include("./partials/_footer") %>
+<%- include("./partials/_footer") %>
