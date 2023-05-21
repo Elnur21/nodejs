@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // console.log("vurma cedveli")
+        // for(let i=1;i<10;i++){
+        //     for(let j=1;j<=10;j++){
+        //     console.log(`${i}*${j}=${i*j}`)
+        // }
+        // }
+        // console.log("fakt0rial")
+        // let n = 9
+        // let result = 1;
+        // for(let i=1;i<=n;i++){
+        //     result*=i;
+        // }
+        // console.log(`${n}-in faktoriali: ${result}`)
+
+        // console.log("ucbucaq ulduzlar")
+        // let ulduz=""
+        // document.write(ulduz)
+        // for(let i=1;i<=9;i++){
+        //     ulduz+= i%2==0?"0":"1"
+        //     document.write(ulduz + "<br>")
+        // }
+
+        
+        // ulduz="                   *"
+        // console.log(ulduz)
+        // for(let i=2;i<=n;i++){
+        //     ulduz+="**"
+        //     ulduz=  ulduz.slice(1);
+        //     console.log(ulduz)
+        // }
+        for (let big = 0; big < 9; big++) {
+            ulduz=""
+            for(let i=1;i<=9-big;i++){
+            ulduz+= " "
+            }
+            ulduz+="*"
+            for(let j=1;j<=big;j++){
+            ulduz+= "**"
+            }
+            console.log(ulduz)
+        }
+    </script>
+</body>
+</html>
