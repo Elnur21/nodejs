@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
+const method_override = require("method-override");
 
 const pageRoutes = require("./routes/pageRoutes");
 const courseRoutes = require("./routes/courseRoutes");
@@ -54,6 +55,11 @@ app.use((req, res, next) => {
   res.locals.flashMessages = req.flash();
   next();
 });
+app.use(
+  method_override("_method", {
+    methods: ["POST", "GET"],
+  })
+);
 
 // global variables
 global.userIN = null;

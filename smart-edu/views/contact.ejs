@@ -26,17 +26,11 @@
       <div class="col-xl-6 col-md-12 col-sm-12">
         <div class="contact_form">
           <div id="message">
-            <% if (flashMessages) { %>
-                <% if (flashMessages.success) { %>
-                  <div class="alert alert-success">
-                <%= flashMessages.success %>
-                </div>
-              <% } else if (flashMessages.error) { %>
-               <div class="alert alert-danger">
-                <%= flashMessages.error %>
-                </div>
-                <% } %>
-              <% } %>
+            <% if (flashMessages) { %> <% if (flashMessages.success) { %>
+            <div class="alert alert-success"><%= flashMessages.success %></div>
+            <% } else if (flashMessages.error) { %>
+            <div class="alert alert-danger"><%= flashMessages.error %></div>
+            <% } %> <% } %>
           </div>
           <form
             id="contactform"
