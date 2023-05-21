@@ -4,8 +4,7 @@
   "description": "Education",
   "main": "app.js",
   "scripts": {
-    "test": "npm",
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "keywords": [
     "education",

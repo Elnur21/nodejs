@@ -170,6 +170,7 @@
       <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
         <div class="message-box">
           <h4>2018 BEST SmartEDU education school</h4>
+          <% if(courses[0]){ %>
           <h2><%= courses[0].name %></h2>
           <p><%= courses[0].description %></p>
 
@@ -187,7 +188,7 @@
         <!-- end messagebox -->
       </div>
       <!-- end col -->
-
+      <% } %>
       <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
         <div class="post-media wow fadeIn">
           <img
@@ -215,6 +216,7 @@
 
       <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
         <div class="message-box">
+          <% if(courses[1]) { %>
           <h2><%= courses[1].name %></h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -232,6 +234,7 @@
             ><span>Learn More</span></a
           >
         </div>
+        <% } %>
         <!-- end messagebox -->
       </div>
       <!-- end col -->

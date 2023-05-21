@@ -13,7 +13,7 @@ const categoryRoutes = require("./routes/categoryRoutes");
 const userRoutes = require("./routes/userRoutes");
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 5003;
 
 // Connect DB
 mongoose
