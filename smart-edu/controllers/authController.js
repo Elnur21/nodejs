@@ -58,6 +58,7 @@ exports.logoutUser = (req, res) => {
   });
 };
 exports.getDashboardPage = async (req, res) => {
+  const users = await User.find();
   const user = await User.findOne({ _id: req.session.userID }).populate(
     "courses"
   );
@@ -68,7 +69,21 @@ exports.getDashboardPage = async (req, res) => {
   res.status(200).render("dashboard", {
     pageName: "dashboard",
     user,
+    users,
     categories,
     courses,
   });
+};
+exports.deleteUser = async (req, res) => {
+  try {
+    const user = await User.findByIdAndRemove(req.params.id);
+    await Course.deleteMany({ user: req.params.id });
+    req.flash("error", `${user.name} has been deleted.`);
+    res.status(200).redirect("/user/dashboard");
+  } catch (error) {
+    res.status(400).json({
+      status: "fail",
+      error,
+    });
+  }
 };

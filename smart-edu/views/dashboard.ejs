@@ -369,47 +369,134 @@
       </div>
       <% } %> <% } %>
     </div>
-
-    <!-- end row -->
-  </div>
-  <!-- end container -->
-</div>
-<!-- end section -->
-
-<div class="parallax section dbcolor">
-  <div class="container">
-    <div class="row logos">
-      <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-        <a href="#"
-          ><img src="/images/logo_01.png" alt="" class="img-repsonsive"
-        /></a>
-      </div>
-      <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-        <a href="#"
-          ><img src="/images/logo_02.png" alt="" class="img-repsonsive"
-        /></a>
-      </div>
-      <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-        <a href="#"
-          ><img src="/images/logo_03.png" alt="" class="img-repsonsive"
-        /></a>
-      </div>
-      <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-        <a href="#"
-          ><img src="/images/logo_04.png" alt="" class="img-repsonsive"
-        /></a>
-      </div>
-      <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-        <a href="#"
-          ><img src="/images/logo_05.png" alt="" class="img-repsonsive"
-        /></a>
-      </div>
-      <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-        <a href="#"
-          ><img src="/images/logo_06.png" alt="" class="img-repsonsive"
-        /></a>
+    <% if (user.role === "admin") { %>
+    <h2>Users</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID#</th>
+          <th scope="col">Email</th>
+          <th scope="col">Role</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let i=0; i< users.length; i++) { %>
+        <tr>
+          <th scope="row"><%=users[i]._id %></th>
+          <td><%=users[i].email %></td>
+          <td><%=users[i].role %></td>
+          <td>
+            <a
+              href="/user/<%= users[i]._id %>?_method=DELETE"
+              onclick="return confirm('are you sure?')"
+              class="btn btn-danger rounded text-white"
+            >
+              DELETE
+            </a>
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+    <h2 class="w-100 d-flex justify-content-between">
+      Categories
+      <button
+        class="btn btn-lg btn-warning rounded-0 text-white"
+        data-toggle="modal"
+        data-target="#addCategory"
+      >
+        ADD
+      </button>
+    </h2>
+    <div
+      class="modal fade"
+      id="addCategory"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModalLabel"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header tit-up">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
+              X
+            </button>
+            <h4 class="modal-title">Update course</h4>
+          </div>
+          <div class="modal-body customer-box">
+            <form
+              role="form"
+              class="form-horizontal"
+              method="POST"
+              id="addCategory-form"
+              action="/categories"
+            >
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input
+                    name="name"
+                    class="form-control"
+                    id=""
+                    placeholder="Category name"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-10">
+                  <button
+                    type="submit"
+                    form="addCategory-form"
+                    class="btn btn-light btn-radius btn-brd grd1"
+                  >
+                    Submit
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-light btn-radius btn-brd grd1"
+                    data-dismiss="modal"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let i=0; i< categories.length; i++) { %>
+        <tr>
+          <th scope="row"><%=categories[i]._id %></th>
+          <td><%=categories[i].name %></td>
+          <td>
+            <a
+              href="/categories/<%= categories[i]._id %>?_method=DELETE"
+              onclick="return confirm('ARE YOU SURE')"
+              class="btn btn-danger rounded-0 text-white"
+              ><span>DELETE</span></a
+            >
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+    <% } %>
     <!-- end row -->
   </div>
   <!-- end container -->

@@ -29,7 +29,7 @@
       <div
         id="home"
         class="first-section"
-        style="background-image: url('images/slider-01.jpg')"
+        style="background-image: url('/images/slider-01.jpg')"
       >
         <div class="dtab">
           <div class="container">
@@ -41,9 +41,13 @@
                     With Landigoo responsive landing page template, you can
                     promote your all hosting, domain and email services.
                   </p>
-                  <a href="#" class="hover-btn-new"><span>Contact Us</span></a>
+                  <a href="/contact" class="hover-btn-new"
+                    ><span>Contact Us</span></a
+                  >
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <a href="#" class="hover-btn-new"><span>Read More</span></a>
+                  <a href="/about" class="hover-btn-new"
+                    ><span>Read More</span></a
+                  >
                 </div>
               </div>
             </div>
@@ -58,7 +62,7 @@
       <div
         id="home"
         class="first-section"
-        style="background-image: url('images/slider-02.jpg')"
+        style="background-image: url('/images/slider-02.jpg')"
       >
         <div class="dtab">
           <div class="container">
@@ -72,9 +76,13 @@
                     With Landigoo responsive landing page template, you can
                     promote your all hosting, domain and email services.
                   </p>
-                  <a href="#" class="hover-btn-new"><span>Contact Us</span></a>
+                  <a href="/contact" class="hover-btn-new"
+                    ><span>Contact Us</span></a
+                  >
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <a href="#" class="hover-btn-new"><span>Read More</span></a>
+                  <a href="/about" class="hover-btn-new"
+                    ><span>Read More</span></a
+                  >
                 </div>
               </div>
             </div>
@@ -89,7 +97,7 @@
       <div
         id="home"
         class="first-section"
-        style="background-image: url('images/slider-03.jpg')"
+        style="background-image: url('/images/slider-03.jpg')"
       >
         <div class="dtab">
           <div class="container">
@@ -103,9 +111,13 @@
                     1 IP include with each server Your Choice of any OS (CentOS,
                     Windows, Debian, Fedora) FREE Reboots
                   </p>
-                  <a href="#" class="hover-btn-new"><span>Contact Us</span></a>
+                  <a href="/contact" class="hover-btn-new"
+                    ><span>Contact Us</span></a
+                  >
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <a href="#" class="hover-btn-new"><span>Read More</span></a>
+                  <a href="/about" class="hover-btn-new"
+                    ><span>Read More</span></a
+                  >
                 </div>
               </div>
             </div>
@@ -144,7 +156,7 @@
   <div class="container">
     <div class="section-title row text-center">
       <div class="col-md-8 offset-md-2">
-        <h3>About</h3>
+        <h3>Latest Courses</h3>
         <p class="lead">
           Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. Aenean
           sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
@@ -158,12 +170,8 @@
       <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
         <div class="message-box">
           <h4>2018 BEST SmartEDU education school</h4>
-          <h2>Welcome to SmartEDU education school</h2>
-          <p>
-            Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis
-            vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus
-            dignissim.
-          </p>
+          <h2><%= courses[0].name %></h2>
+          <p><%= courses[0].description %></p>
 
           <p>
             Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis
@@ -172,7 +180,9 @@
             ridiculus mus. Sed vitae rutrum neque.
           </p>
 
-          <a href="#" class="hover-btn-new orange"><span>Learn More</span></a>
+          <a href="/courses/<%= courses[0].slug %>" class="hover-btn-new orange"
+            ><span>Learn More</span></a
+          >
         </div>
         <!-- end messagebox -->
       </div>
@@ -205,7 +215,7 @@
 
       <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
         <div class="message-box">
-          <h2>The standard Lorem Ipsum passage, used since the 1500s</h2>
+          <h2><%= courses[1].name %></h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -216,12 +226,11 @@
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
 
-          <p>
-            Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis
-            nibh sed tellus faucibus bibendum.
-          </p>
+          <p><%= courses[1].description %></p>
 
-          <a href="#" class="hover-btn-new orange"><span>Learn More</span></a>
+          <a href="/courses/<%= courses[1].slug %>" class="hover-btn-new orange"
+            ><span>Learn More</span></a
+          >
         </div>
         <!-- end messagebox -->
       </div>
@@ -233,108 +242,6 @@
 </div>
 <!-- end section -->
 
-<section class="section lb page-section">
-  <div class="container">
-    <div class="section-title row text-center">
-      <div class="col-md-8 offset-md-2">
-        <h3>Our history</h3>
-        <p class="lead">
-          Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. Aenean
-          sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
-          nec sagittis sem!
-        </p>
-      </div>
-    </div>
-    <!-- end title -->
-    <div class="timeline">
-      <div class="timeline__wrap">
-        <div class="timeline__items">
-          <div class="timeline__item">
-            <div class="timeline__content img-bg-01">
-              <h2>2018</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                dignissim neque condimentum lacus dapibus. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit.
-              </p>
-            </div>
-          </div>
-          <div class="timeline__item">
-            <div class="timeline__content img-bg-02">
-              <h2>2015</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                dignissim neque condimentum lacus dapibus. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit.
-              </p>
-            </div>
-          </div>
-          <div class="timeline__item">
-            <div class="timeline__content img-bg-03">
-              <h2>2014</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                dignissim neque condimentum lacus dapibus. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit.
-              </p>
-            </div>
-          </div>
-          <div class="timeline__item">
-            <div class="timeline__content img-bg-04">
-              <h2>2012</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                dignissim neque condimentum lacus dapibus. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit.
-              </p>
-            </div>
-          </div>
-          <div class="timeline__item">
-            <div class="timeline__content img-bg-01">
-              <h2>2010</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                dignissim neque condimentum lacus dapibus. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit.
-              </p>
-            </div>
-          </div>
-          <div class="timeline__item">
-            <div class="timeline__content img-bg-02">
-              <h2>2007</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                dignissim neque condimentum lacus dapibus. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit.
-              </p>
-            </div>
-          </div>
-          <div class="timeline__item">
-            <div class="timeline__content img-bg-03">
-              <h2>2004</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                dignissim neque condimentum lacus dapibus. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit.
-              </p>
-            </div>
-          </div>
-          <div class="timeline__item">
-            <div class="timeline__content img-bg-04">
-              <h2>2002</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                dignissim neque condimentum lacus dapibus. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <div class="section cl">
   <div class="container">
     <div class="row text-left stat-wrap">
@@ -342,7 +249,7 @@
         <span data-scroll class="global-radius icon_wrap effect-1 alignleft"
           ><i class="flaticon-study"></i
         ></span>
-        <p class="stat_count">12000</p>
+        <p class="stat_count"><%= totalStudents %></p>
         <h3>Students</h3>
       </div>
       <!-- end col -->
@@ -351,7 +258,7 @@
         <span data-scroll class="global-radius icon_wrap effect-1 alignleft"
           ><i class="flaticon-online"></i
         ></span>
-        <p class="stat_count">240</p>
+        <p class="stat_count"><%= totalCourses %></p>
         <h3>Courses</h3>
       </div>
       <!-- end col -->
@@ -360,8 +267,8 @@
         <span data-scroll class="global-radius icon_wrap effect-1 alignleft"
           ><i class="flaticon-years"></i
         ></span>
-        <p class="stat_count">55</p>
-        <h3>Years Completed</h3>
+        <p class="stat_count"><%= totalTeachers %></p>
+        <h3>Teachers</h3>
       </div>
       <!-- end col -->
     </div>
@@ -642,7 +549,7 @@
 <div
   id="testimonials"
   class="parallax section db parallax-off"
-  style="background-image: url('images/parallax_04.jpg')"
+  style="background-image: url('/images/parallax_04.jpg')"
 >
   <div class="container">
     <div class="section-title text-center">
@@ -755,46 +662,6 @@
         <!-- end carousel -->
       </div>
       <!-- end col -->
-    </div>
-    <!-- end row -->
-  </div>
-  <!-- end container -->
-</div>
-<!-- end section -->
-
-<div class="parallax section dbcolor">
-  <div class="container">
-    <div class="row logos">
-      <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-        <a href="#"
-          ><img src="/images/logo_01.png" alt="" class="img-repsonsive"
-        /></a>
-      </div>
-      <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-        <a href="#"
-          ><img src="/images/logo_02.png" alt="" class="img-repsonsive"
-        /></a>
-      </div>
-      <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-        <a href="#"
-          ><img src="/images/logo_03.png" alt="" class="img-repsonsive"
-        /></a>
-      </div>
-      <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-        <a href="#"
-          ><img src="/images/logo_04.png" alt="" class="img-repsonsive"
-        /></a>
-      </div>
-      <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-        <a href="#"
-          ><img src="/images/logo_05.png" alt="" class="img-repsonsive"
-        /></a>
-      </div>
-      <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-        <a href="#"
-          ><img src="/images/logo_06.png" alt="" class="img-repsonsive"
-        /></a>
-      </div>
     </div>
     <!-- end row -->
   </div>
