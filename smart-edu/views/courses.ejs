@@ -5,7 +5,7 @@
 	
 	<div class="all-title-box">
 		<div class="container text-center">
-			<h1>Course Grid 2<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
+			<h1>Courses<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
 		</div>
 	</div>
 	
@@ -16,6 +16,13 @@
                     <p class="lead">Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem!</p>
                 </div>
             </div><!-- end title -->
+			<div id="message">
+				<% if (flashMessages) { %> <% if (flashMessages.success) { %>
+				<div class="alert alert-success"><%= flashMessages.success %></div>
+				<% } else if (flashMessages.error) { %>
+				<div class="alert alert-danger"><%= flashMessages.error %></div>
+				<% } %> <% } %>
+			  </div>
 			<div class="row">
 				<div class="col-lg-9 blog-post-single col-12">
 					<div class="row"> 
@@ -34,10 +41,9 @@
 										</div>
 									</div>
 									<div class="course-meta-bot">
-										<ul>
-											<li><i class="fa fa-calendar" aria-hidden="true"></i> 6 Month</li>
-											<li><i class="fa fa-users" aria-hidden="true"></i> 56 Student</li>
-											<li><i class="fa fa-book" aria-hidden="true"></i> 7 Books</li>
+										<ul class="w-100 d-flex justify-content-between">
+											<li><%= courses[i].user.name %></li>
+											<li><%= courses[i].category.name %></li>
 										</ul>
 									</div>
 								</div>
@@ -51,10 +57,10 @@
 				<div class="col-lg-3 col-12 right-single">
 					<div class="widget-search">
 						<div class="site-search-area">
-							<form method="get" id="site-searchform" action="#">
+							<form method="GET" id="site-searchform" action="/courses">
 								<div>
-									<input class="input-text form-control" name="search-k" id="search-k" placeholder="Search keywords..." type="text">
-									<input id="searchsubmit" value="Search" type="submit">
+									<input class="input-text form-control" name="search" id="search" placeholder="Search..." type="text">
+									<button id="searchsubmit" value="Search" type="submit"></button>
 								</div>
 							</form>
 						</div>
@@ -95,30 +101,5 @@
 			
         </div><!-- end container -->
     </div><!-- end section -->
-
-    <div class="parallax section dbcolor">
-        <div class="container">
-            <div class="row logos">
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="/images/logo_01.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="/images/logo_02.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="/images/logo_03.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="/images/logo_04.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="/images/logo_05.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="/images/logo_06.png" alt="" class="img-repsonsive"></a>
-                </div>
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
-
+	
     <%- include("./partials/_footer") %>
