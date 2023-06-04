@@ -24,9 +24,14 @@ class Plane extends Transport {
     super(power, marka, model, maxSpeed);
     this.passengerCapacity = passengerCapacity;
   }
-  fly() {
+  static fly() {
     console.log("ucuruq");
   }
 }
-let p = new Plane()
-p.move()
+let p = new Plane();
+p.move();
+console.table([
+  [1, 2, 3],
+  [1, 2, 3],
+  [1, 2, 3],
+]);
